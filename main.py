@@ -1,5 +1,4 @@
 import json
-from utils import allocate_order
 from warehouse import Warehouse
 from make_input import make
 
@@ -11,9 +10,6 @@ except FileNotFoundError:
     f = open('input.json')
 
 input_dict = json.loads(f.read())
-
-# 2. Allocate order efficiently
-# allocate_order(input_dict)
 
 
 # 3. 창고 정보로 창고 생성
