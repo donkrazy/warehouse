@@ -1,3 +1,12 @@
+class Dron():
+    def __init__(self, name):
+        self.order_list = []
+        self.warehouse_name = name  # foreign key
+
+    def get_time(self):
+        pass
+
+
 class Warehouse():
     def __init__(self, info):
         self.count = 0
@@ -5,6 +14,7 @@ class Warehouse():
         self.name = info['name']
         self.time_required = info['time_required']
         self.dron_schedule = [0] * info['num_drons']  # 드론 대기열 리스트
+        # self.dron_list = [Dron(self.name) for i in range(info['num_drons'])] # 하다가 만 코드
 
     def get_additional_time(self, order):
         # 창고의 드론 중 가장 추가 배송시간이 짧은 것의 배송시간을 가져온다
@@ -32,8 +42,7 @@ class Warehouse():
         print('예상 소요시간: {}분'.format(max(self.dron_schedule)))
         print('dron schedule:{}'.format(self.dron_schedule))
         print('처리대상')
-        for order in self.orders_todo:
-            print(order)
+        print(self.orders_todo)
 
     def __str__(self):
         return '{}, {}'.format(self.name, self.time_required)
