@@ -24,13 +24,3 @@ def allocate_order():
 
     # print(area_1, len(area_1))
     # print(area_2, len(area_2))
-
-
-def search(warehouse_list, order):
-    # 가장 추가시간이 짧은 창고 찾기
-    add_time_list = []
-    for warehouse in warehouse_list:
-        add_time = warehouse.get_additional_time(order)
-        add_time_list.append(add_time)
-    min_index, _ = min(enumerate(add_time_list), key=lambda p: p[1])
-    return warehouse_list[min_index]
